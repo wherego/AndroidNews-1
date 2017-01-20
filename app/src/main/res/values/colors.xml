@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="photo_detail_background_color">#3e3e3e</color>
+    <color name="background_color_primary">#eeeeee</color>
+    <color name="background_color_secondary">#ffffff</color>
+    <color name="text_color_primary">#222222</color>
+    <color name="text_color_secondary">#3e3e3e</color>
+    <color name="cycle_image_bg">#44222222</color>
+    <color name="colorLightGray">#E0E0E0</color>
+</resources>

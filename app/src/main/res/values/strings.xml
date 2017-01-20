@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">果果小屋</string>
+    <string name="girl_title">靓妹纸</string>
+    <string name="transition_photos">transition_animation_news_photos</string>
+    <string name="photo">图片</string>
+    <string name="girl">妹纸</string>
+    <string name="title_photo">妹子</string>
+    <string name="share">分享</string>
+    <string name="save">保存</string>
+    <string name="set_wallpaper">设置壁纸</string>
+    <string name="news">新闻</string>
+    <string name="zhihu">知乎</string>
+    <string name="meizhi">妹纸</string>
+</resources>
