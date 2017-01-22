@@ -7,12 +7,21 @@ import java.util.List;
  */
 
 public class ZhiHuDataBean {
+    private String date;
     private int type;
     private int id;
     private String ga_prefix;
     private String title;
     private boolean multipic;
     private List<String> images;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getType() {
         return type;

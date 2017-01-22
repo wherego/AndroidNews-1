@@ -3,7 +3,11 @@ package com.nice.qin.fire.ui.news.presenter;
 import com.jaydenxiao.common.baserx.RxSubscriber;
 import com.nice.qin.fire.R;
 import com.nice.qin.fire.bean.ZhiHuData;
+import com.nice.qin.fire.bean.ZhiHuDataBean;
 import com.nice.qin.fire.ui.news.contract.ZhiHuListContract;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -43,10 +47,14 @@ public class ZhiHuListPresenter extends ZhiHuListContract.Presenter {
                         super.onStart();
                         mView.showLoading(mContext.getString(R.string.loading));
                     }
-
                     @Override
                     protected void _onNext(ZhiHuData zhiHuData) {
-                        mView.returnZhiHuDataList(zhiHuData.getStories());
+                        List<ZhiHuDataBean> list = new ArrayList<ZhiHuDataBean>();
+                        for (ZhiHuDataBean zhiHuDataBean : zhiHuData.getStories()) {
+                            zhiHuDataBean.setDate(zhiHuData.getDate());
+                            list.add(zhiHuDataBean);
+                        }
+                        mView.returnZhiHuDataList(list);
                         mView.stopLoading();
                     }
 

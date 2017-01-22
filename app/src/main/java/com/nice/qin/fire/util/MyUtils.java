@@ -21,9 +21,11 @@ import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jaydenxiao.common.commonutils.TimeUtil;
 import com.nice.qin.fire.app.MyApplication;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -63,13 +65,14 @@ public class MyUtils {
 
     /***
      * 获取系统日期 格式20170102
+     *
      * @param dayOffSet 日期偏移量 正数向前，负数向后
      * @return
      */
     public static String getCurrentDate(int dayOffSet) {
         Calendar c = Calendar.getInstance();
-        String cYear,cMonth,cDay;
-        c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH) + dayOffSet);
+        String cYear, cMonth, cDay;
+        c.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH) + dayOffSet);
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH) + 1;
         int day = c.get(Calendar.DAY_OF_MONTH);
@@ -79,5 +82,12 @@ public class MyUtils {
         if (month / 10 == 0) cMonth = "0" + cMonth;
         if (day / 10 == 0) cDay = "0" + cDay;
         return cYear + cMonth + cDay;
+    }
+
+    public static String getFormatDate(String date) {
+        String year = date.substring(0, 4);
+        String month = date.substring(4, 6);
+        String day = date.substring(6, date.length());
+        return year + "-" + month + "-" + day;
     }
 }

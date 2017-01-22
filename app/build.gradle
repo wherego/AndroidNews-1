@@ -30,6 +30,7 @@ dependencies {
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.6'
+    compile 'com.jude:easyrecyclerview:4.3.7'
     compile project(path: ':library:common')
     compile project(path: ':library:irecyclerview')
 }

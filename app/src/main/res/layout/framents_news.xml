@@ -5,48 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         >
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/zhihu"
-            />
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|snap">
+
+            <FrameLayout
+                android:id="@+id/main_fl_title"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_collapseMode="parallax">
+
+                <com.nice.qin.fire.widget.CycleViewPager
+                    android:id="@+id/cycleViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </FrameLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <com.nice.qin.fire.widget.CycleViewPager
-            android:id="@+id/cycleViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_scrollFlags="scroll|enterAlways"
-            />
-
-        <com.aspsine.irecyclerview.IRecyclerView
-            android:id="@+id/irc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/cycleViewPager"
-            app:loadMoreEnabled="true"
-            app:refreshEnabled="true"
-            app:refreshHeaderLayout="@layout/layout_irecyclerview_refresh_header"
-            />
-
-    </RelativeLayout>
-    <com.jaydenxiao.common.commonwidget.LoadingTip
-        android:id="@+id/loadedTip"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:recyclerClipToPadding="true"
+            app:recyclerPadding="4dp"
+            app:recyclerPaddingBottom="4dp"
+            app:recyclerPaddingLeft="4dp"
+            app:recyclerPaddingRight="4dp"
+            app:recyclerPaddingTop="4dp"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none"/>
+    </FrameLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
