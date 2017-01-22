@@ -1,1 +1,1 @@
-include ':app', ':library:common', ':library:irecyclerview'
+include  ':app', ':library:common', ':library:irecyclerview'
