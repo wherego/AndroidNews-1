@@ -2,9 +2,13 @@ package com.nice.qin.fire.api;
 
 
 import com.nice.qin.fire.bean.GirlData;
+import com.nice.qin.fire.bean.VideoData;
 import com.nice.qin.fire.bean.ZhiHuData;
 import com.nice.qin.fire.bean.ZhiHuDetail;
 
+
+import java.util.List;
+import java.util.Map;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -24,11 +28,20 @@ public interface ApiService {
             @Header("Cache-Control") String cacheControl,
             @Path("size") int size,
             @Path("page") int page);
+
     @GET("api/4/news/before/{date}")
-    Observable<ZhiHuData>getZhiHuDataList(@Path("date")String date);
+    Observable<ZhiHuData> getZhiHuDataList(@Path("date") String date);
+
     @GET("api/4/news/latest")
-    Observable<ZhiHuData>getZhiHuTopList();
+    Observable<ZhiHuData> getZhiHuTopList();
+
     @GET("api/4/news/{id}")
-    Observable<ZhiHuDetail>getZhiHuDetail(@Path("id")String id);
+    Observable<ZhiHuDetail> getZhiHuDetail(@Path("id") String id);
+
+    @GET("nc/video/list/{type}/n/{startPage}-10.html")
+    Observable<Map<String, List<VideoData>>> getVideoList(
+            @Header("Cache-Control") String cacheControl,
+            @Path("type") String type,
+            @Path("startPage") int startPage);
 }
 

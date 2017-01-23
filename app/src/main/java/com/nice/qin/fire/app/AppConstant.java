@@ -14,6 +14,5 @@ public class AppConstant {
 
     public static final String ZHIHU_DETAIL_ID = "zhihudetailid";
 
-
-
+    public static final String VIDEO_TYPE = "VIDEO_TYPE";
 }

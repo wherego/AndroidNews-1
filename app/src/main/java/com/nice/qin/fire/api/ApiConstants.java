@@ -2,6 +2,7 @@ package com.nice.qin.fire.api;
 
 public class ApiConstants {
 
+    public static final String NETEAST_HOST = "http://c.m.163.com/";
     /**
      * 妹子图片
      * http://gank.io/api/data/福利/{size}/{page}
@@ -27,6 +28,9 @@ public class ApiConstants {
                 break;
             case HostType.ZHIHU:
                 host = ZHIHU;
+                break;
+            case HostType.NETEASE_NEWS_VIDEO:
+                host = NETEAST_HOST;
                 break;
             default:
                 host = "";

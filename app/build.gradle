@@ -31,6 +31,7 @@ dependencies {
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.7.6'
     compile 'com.jude:easyrecyclerview:4.3.7'
+    compile 'fm.jiecao:jiecaovideoplayer:5.3'
     compile project(path: ':library:common')
     compile project(path: ':library:irecyclerview')
 }

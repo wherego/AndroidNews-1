@@ -6,6 +6,31 @@ package com.nice.qin.fire.bean;
  * on 2016.09.14:12
  */
 public class VideoData {
+
+    /**
+     * topicImg : http://vimg3.ws.126.net/image/snapshot/2016/8/5/M/VBUQ2NJ5M.jpg
+     * videosource : 新媒体
+     * mp4Hd_url : http://flv2.bn.netease.com/videolib3/1609/06/UnuGW1312/HD/UnuGW1312-mobile.mp4
+     * topicDesc : 利用动漫形象财哥的口吻，将枯燥乏味的财经知识用幽默风趣的形式展现出来，视频时间在1分半左右
+     * topicSid : VBUQ2NJ5I
+     * cover : http://vimg2.ws.126.net/image/snapshot/2016/9/S/2/VBVBITNS2.jpg
+     * title : 马云：当初你对我爱搭不理，如今你高攀不起
+     * playCount : 0
+     * replyBoard : video_bbs
+     * videoTopic : {"alias":"听财哥讲财经","tname":"30秒懂财经","ename":"T1472544642251","tid":"T1472544642251"}
+     * sectiontitle :
+     * replyid : BVBITNS1008535RB
+     * description : 创业初期，他经历了4次失败，但是他没有放弃，坚持到成就了自己的商业帝国
+     * mp4_url : http://flv2.bn.netease.com/videolib3/1609/06/UnuGW1312/SD/UnuGW1312-mobile.mp4
+     * length : 164
+     * playersize : 1
+     * m3u8Hd_url : http://flv2.bn.netease.com/videolib3/1609/06/UnuGW1312/HD/movie_index.m3u8
+     * vid : VBVBITNS1
+     * m3u8_url : http://flv2.bn.netease.com/videolib3/1609/06/UnuGW1312/SD/movie_index.m3u8
+     * ptime : 2016-09-08 13:55:17
+     * topicName : 30秒懂财经
+     */
+
     private String topicImg;
     private String videosource;
     private String mp4Hd_url;
@@ -15,7 +40,12 @@ public class VideoData {
     private String title;
     private int playCount;
     private String replyBoard;
-
+    /**
+     * alias : 听财哥讲财经
+     * tname : 30秒懂财经
+     * ename : T1472544642251
+     * tid : T1472544642251
+     */
 
     private VideoTopicBean videoTopic;
     private String sectiontitle;

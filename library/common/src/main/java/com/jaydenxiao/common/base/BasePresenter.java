@@ -24,5 +24,9 @@ public abstract class BasePresenter<T,E>{
     };
     public void onDestroy() {
         mRxManage.clear();
+        mRxManage = null;
+        mContext = null;
+        mModel = null;
+        mView = null;
     }
 }

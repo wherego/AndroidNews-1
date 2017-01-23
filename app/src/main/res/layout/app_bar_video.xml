@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TableLayout
+            android:orientation="horizontal">
+            <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                app:layout_scrollFlags="scroll|enterAlways"
                 >
-            </TableLayout>
+            </android.support.design.widget.TabLayout>
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
     <android.support.v4.view.ViewPager
@@ -36,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="@color/colorAccent"
         android:src="@drawable/ic_arrow_upward"
+        app:backgroundTint="@color/colorAccent"
         app:layout_behavior="com.nice.qin.fire.widget.ScrollAwareFABBehavior"
         />
 </android.support.design.widget.CoordinatorLayout>

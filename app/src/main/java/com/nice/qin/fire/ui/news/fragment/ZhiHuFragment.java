@@ -96,6 +96,7 @@ public class ZhiHuFragment extends BaseFragment<ZhiHuListPresenter, ZhiHuListMod
             @Override
             public void onRefresh() {
                 setDayOffSet(0);
+                adapter.clear();
                 mPresenter.getZhiHuDataList(mCurrentDate);
             }
         });
