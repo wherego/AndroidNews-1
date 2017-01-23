@@ -1,8 +1,13 @@
 package com.nice.qin.fire.ui.news.activity;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -41,6 +46,17 @@ implements ZhiHuDetailContract.View, View.OnClickListener {
         Intent intent = new Intent(mContext, ZhiHuDetailActivity.class);
         intent.putExtra(AppConstant.ZHIHU_DETAIL_ID, id);
 
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions
+                    .makeSceneTransitionAnimation((Activity) mContext,view,
+                            AppConstant.TRANSITION_ANIMATION_NEWS_PHOTOS);
+            mContext.startActivity(intent, options.toBundle());
+        } else {
+            //让新的Activity从一个小的范围扩大到全屏
+            ActivityOptionsCompat options = ActivityOptionsCompat
+                    .makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
+            ActivityCompat.startActivity((Activity) mContext, intent, options.toBundle());
+        }*/
         mContext.startActivity(intent);
     }
     @Override

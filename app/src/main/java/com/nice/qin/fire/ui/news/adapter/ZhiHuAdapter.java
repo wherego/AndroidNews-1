@@ -12,6 +12,7 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.nice.qin.fire.R;
 import com.nice.qin.fire.bean.ZhiHuDataBean;
+import com.nice.qin.fire.ui.news.activity.ZhiHuDetailActivity;
 import com.nice.qin.fire.ui.news.fragment.ZhiHuFragment;
 import com.nice.qin.fire.util.MyUtils;
 
@@ -23,6 +24,7 @@ public class ZhiHuAdapter extends RecyclerArrayAdapter<ZhiHuDataBean> {
     public ZhiHuAdapter(Context context) {
         super(context);
     }
+
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
         return new ZhiHuViewHolder(parent);

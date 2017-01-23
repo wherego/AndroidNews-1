@@ -61,6 +61,7 @@ public class VideoAdapter extends RecyclerArrayAdapter<VideoData> {
                     .error(com.jaydenxiao.common.R.drawable.ic_empty_picture)
                     .crossFade()
                     .into(player.thumbImageView);
+
         }
     }
 }

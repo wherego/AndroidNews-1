@@ -14,6 +14,8 @@ import com.jaydenxiao.common.base.BaseFragmentAdapter;
 import com.nice.qin.fire.R;
 import com.nice.qin.fire.app.AppConstant;
 import com.nice.qin.fire.bean.VideoChannelTable;
+import com.nice.qin.fire.bus.RxBus;
+import com.nice.qin.fire.bus.TopEvent;
 import com.nice.qin.fire.db.VideosChannelTableManager;
 import com.nice.qin.fire.ui.news.fragment.VideoFragment;
 
@@ -70,7 +72,7 @@ public class VideoMainFragment extends Fragment{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //rxbus
+                RxBus.getDefault().post(new TopEvent(AppConstant.LIST_TO_TOP,""));
             }
         });
     }
@@ -87,4 +89,8 @@ public class VideoMainFragment extends Fragment{
         return fragment;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

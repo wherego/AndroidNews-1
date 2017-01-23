@@ -1,24 +1,29 @@
 package com.nice.qin.fire.ui.main.activity;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.ViewGroup;
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.jaydenxiao.common.base.BaseActivity;
 import com.nice.qin.fire.R;
+import com.nice.qin.fire.app.AppConstant;
 import com.nice.qin.fire.bean.TabEntity;
 import com.nice.qin.fire.ui.main.fragment.GirlMainFragment;
 import com.nice.qin.fire.ui.main.fragment.VideoMainFragment;
-import com.nice.qin.fire.ui.news.fragment.VideoFragment;
 import com.nice.qin.fire.ui.news.fragment.ZhiHuFragment;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import rx.functions.Action1;
 
 public class MainActivity extends BaseActivity {
 
@@ -49,6 +54,13 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         initTab();
+        //监听菜单显示或隐藏
+        mRxManager.on(AppConstant.MENU_SHOW_HIDE, new Action1<Boolean>() {
+            @Override
+            public void call(Boolean hideOrShow) {
+                startAnimation(hideOrShow);
+            }
+        });
     }
 
     @Override
@@ -80,7 +92,34 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
+    /**
+     * 菜单显示隐藏动画
+     *
+     * @param showOrHide
+     */
+    private void startAnimation(boolean showOrHide) {
+        final ViewGroup.LayoutParams layoutParams = tabLayout.getLayoutParams();
+        ValueAnimator valueAnimator;
+        ObjectAnimator alpha;
+        if (!showOrHide) {
+            valueAnimator = ValueAnimator.ofInt(tabLayoutHeight, 0);
+            alpha = ObjectAnimator.ofFloat(tabLayout, "alpha", 1, 0);
+        } else {
+            valueAnimator = ValueAnimator.ofInt(0, tabLayoutHeight);
+            alpha = ObjectAnimator.ofFloat(tabLayout, "alpha", 0, 1);
+        }
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                layoutParams.height = (int) valueAnimator.getAnimatedValue();
+                tabLayout.setLayoutParams(layoutParams);
+            }
+        });
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(500);
+        animatorSet.playTogether(valueAnimator, alpha);
+        animatorSet.start();
+    }
     private void initFragment(Bundle savedInstanceState) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         int currentTabPosition = 0;
